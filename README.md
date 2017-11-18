@@ -11,8 +11,10 @@ $ yarn start
 Use simulator/emulator or your own mobile device to view the app through expo.
 
 ## Running the application
+```shell
 $ cd udacity-myflashcards-project
 $ `yarn start` or `npm run start`
+```
 
 ## Dependencies
 - expo
