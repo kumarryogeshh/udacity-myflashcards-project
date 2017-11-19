@@ -4,6 +4,44 @@ import shortid from 'shortid'
 export const CARD_STORAGE_KEY = 'MobileFlashCards:card'
 export const NOTIFICATION_KEY = 'MobileFlashCards:notifications'
 
+export const initData = {
+  React: {
+    id: 'React',
+    timestamp: '012390123',
+    title: 'React',
+    backgroundColor: '#f26f28',
+    deleted: false,
+    questions: [
+      {
+        question: 'What is React?',
+        answer: 'A library for managing user interfaces',
+        deleted: false,
+        id: 1
+      },
+      {
+        question: 'Where do you make Ajax requests in React?',
+        answer: 'The componentDidMount lifecycle event',
+        deleted: false,
+        id: 2
+      }
+    ]
+  },
+  JavaScript: {
+    id: 'JavaScript',
+    timestamp: '012390124',
+    title: 'JavaScript',
+    backgroundColor: '#7c53c3',
+    deleted: false,
+    questions: [
+      {
+        question: 'What is a closure?',
+        deleted: false,
+        answer: 'The combination of a function and the lexical environment within which that function was declared.'
+      }
+    ]
+  }
+}
+
 export const getDecks = () => {
     return AsyncStorage.getItem(CARD_STORAGE_KEY)
       .then(JSON.parse)
@@ -30,7 +68,7 @@ export const getDeck = ({id}) => {
         })
         .then(res => ({
           status: 200,
-          data: res.find(deck => deck.id === id) || null,
+          data: res[id] || null,
           info: 'fetch deck info succeed'
         }))
         .catch(err => ({
@@ -66,6 +104,7 @@ export const addCardToDeck = ({ id, card }) => {
     }
     let _targetDeck = JSON.parse(JSON.stringify(res))
     _targetDeck.questions && _targetDeck.questions.push(newCardData(card))
+
     AsyncStorage.mergeItem(CARD_STORAGE_KEY, JSON.stringify({
       [id]: _targetDeck
     }))
@@ -102,44 +141,6 @@ function newDeckData (title) {
     }
   }
 }
-
-const initData = [
-  {
-    id: 'React',
-    timestamp: '012390123',
-    title: 'React',
-    backgroundColor: '#f26f28',
-    deleted: false,
-    questions: [
-      {
-        question: 'What is React?',
-        answer: 'A library for managing user interfaces',
-        deleted: false,
-        id: 1
-      },
-      {
-        question: 'Where do you make Ajax requests in React?',
-        answer: 'The componentDidMount lifecycle event',
-        deleted: false,
-        id: 2
-      }
-    ]
-  },
-  {
-    id: 'JavaScript',
-    timestamp: '012390124',
-    title: 'JavaScript',
-    backgroundColor: '#7c53c3',
-    deleted: false,
-    questions: [
-      {
-        question: 'What is a closure?',
-        deleted: false,
-        answer: 'The combination of a function and the lexical environment within which that function was declared.'
-      }
-    ]
-  }
-]
 
 AsyncStorage.getItem(CARD_STORAGE_KEY)
   .then(JSON.parse)

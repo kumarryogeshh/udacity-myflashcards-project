@@ -22,3 +22,6 @@ $ `yarn start` or `npm run start`
 - react-native
 - react-native-flip-card
 - react-navigation
+
+## Note
+This project is tested on iOS simulator.

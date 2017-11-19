@@ -73,8 +73,20 @@ export default StyleSheet.create({
   cardBack: {
     backgroundColor: mint
   },
+  textInput: {
+    fontSize: Math.floor(width / 15),
+    height: 50,
+    width: Math.floor(width / 2),
+    borderRadius: 8,
+    margin: 15,
+    padding: 8,
+    borderWidth: 2,
+    borderStyle: 'solid',
+    borderColor: gray
+  },
   hintText: {
     fontSize: Math.floor(width / 12),
+    color: 'black',
     marginLeft: 40,
     marginRight: 40,
     marginBottom: 10
