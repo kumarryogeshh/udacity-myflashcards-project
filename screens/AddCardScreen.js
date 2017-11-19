@@ -46,7 +46,7 @@ class AddCardScreen extends Component {
     let card = { question, answer }
     const { navigation } = this.props
     const { id } = navigation.state.params
-    
+
     addCardToDeck({
       id,
       card
@@ -92,6 +92,9 @@ class AddCardScreen extends Component {
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <Text style={styles.hintText}>Enter your question</Text>
         <TextInput
+          autoCapitalize='sentences'
+          autoCorrect={false}
+          placeholder='Question'
           ref={(el) => {
             this.questionEl = el
           }}
@@ -101,6 +104,9 @@ class AddCardScreen extends Component {
           maxLength={100} />
         <Text style={styles.hintText}>Enter your answer</Text>
         <TextInput
+          autoCapitalize='sentences'
+          autoCorrect={false}
+          placeholder='Answer'
           ref={(el) => {
             this.answerEl = el
           }}

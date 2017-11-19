@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, Platform } from 'react-native'
+import { View, Text, TouchableOpacity, Platform, Dimensions } from 'react-native'
+
 import FlipCard from 'react-native-flip-card'
 import styles from '../utils/styles'
 import { blue } from '../utils/color'
+
+let { height, width } = Dimensions.get('window')
 
 class Card extends Component {
 
@@ -24,7 +27,7 @@ class Card extends Component {
   render(){
     const { data } = this.props
     const { showAnswer } = this.state
-    
+
     return (
       <View style={styles.container}>
         <FlipCard flip={showAnswer}
@@ -37,11 +40,13 @@ class Card extends Component {
             <Text style={styles.hintText}>
               {data.question + '?'}
             </Text>
+            <Text style={{fontSize: Math.floor(width / 18), color: 'red', marginBottom: 5}}>Show Answer</Text>
           </View>
           <View style={[styles.quizCard, styles.cardBack]}>
             <Text style={styles.hintText}>
               {data.answer}
             </Text>
+            <Text style={{fontSize: Math.floor(width / 18), color: 'red', marginBottom: 5}}>Question</Text>
           </View>
         </FlipCard>
       </View>

@@ -6,8 +6,6 @@ import {
   ActivityIndicator,
   TouchableOpacity
 } from 'react-native'
-//import { Button } from 'react-native-elements'
-
 
 import { getDeck } from '../utils/api'
 import styles from '../utils/styles'
@@ -81,7 +79,7 @@ class DeckDetailScreen extends Component {
         <TouchableOpacity style={{flex: 1}} onPress={this.goAddCard}>
           <View style={[styles.button, {backgroundColor: blue}]}>
             <Text style={styles.buttonText}>
-              Add Card
+              Create New Question
             </Text>
           </View>
         </TouchableOpacity>
@@ -90,7 +88,7 @@ class DeckDetailScreen extends Component {
           <TouchableOpacity style={{flex: 1}} onPress={this.goQuiz}>
             <View style={[styles.button, {backgroundColor: orange}]}>
               <Text style={styles.buttonText}>
-                Start Quiz
+                Start a Quiz
               </Text>
             </View>
           </TouchableOpacity>

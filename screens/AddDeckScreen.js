@@ -78,6 +78,9 @@ class AddDeckScreen extends Component {
         <Text style={styles.hintText}>of your new</Text>
         <Text style={styles.hintText}>Deck?</Text>
         <TextInput style={styles.textInput}
+          autoCapitalize='sentences'
+          autoCorrect={false}
+          placeholder='Deck Title'
           ref={(el) => {
             this.deckTitleEl = el
           }}
