@@ -5,6 +5,11 @@ import MainNavigator from './MainNavigator'
 
 class App extends Component {
 
+  async componentWillMount() {
+    await Expo.Font.loadAsync({
+      //'Feather': require('react-native-vector-icons/Fonts/Feather.ttf')
+    });
+  }
   render() {
     return (
       <MainNavigator/>
