@@ -86,9 +86,13 @@ export default StyleSheet.create({
   },
   hintText: {
     fontSize: Math.floor(width / 12),
+    width: Math.floor(width * 0.8),
+    padding: 5,
     color: 'black',
     marginLeft: 40,
     marginRight: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
     marginBottom: 10
   },
 })

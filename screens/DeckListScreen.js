@@ -18,18 +18,10 @@ class DeckListScreen extends Component {
     this.state = {
       list: null
     }
-    //AsyncStorage.clear();
   }
 
   componentWillMount(){
-    //AsyncStorage.clear();
-    console.log('componentWillMount');
     this.fetchDeckList()
-  }
-
-  componentDidMount(){
-    console.log('componentDidMount');
-    //forceUpdate();
   }
 
   async fetchDeckList() {
@@ -38,26 +30,6 @@ class DeckListScreen extends Component {
       .then(res => {
         this.setState({ list: res })
       })
-
-    // await AsyncStorage.getItem(CARD_STORAGE_KEY, (result) => {
-    // let list = JSON.parse(result);
-    //   console.log('LIST 1 :: ', list);
-    //   if(!list) {
-    //     AsyncStorage.setItem(CARD_STORAGE_KEY, JSON.stringify(API.initData), () => {
-    //       //let defaultList =  AsyncStorage.getItem(CARD_STORAGE_KEY);
-    //        AsyncStorage.getItem(CARD_STORAGE_KEY, (defaultList) => {
-    //           console.log('defaultList', defaultList);
-    //           this.setState({ list: defaultList })
-    //       });
-    //
-    //       //return defaultList;
-    //
-    //     })
-    //   } else {
-    //     console.log('LIST 2 :: ', list);
-    //     this.setState({ list: list })
-    //   }
-    // })
   }
 
   render() {
@@ -69,7 +41,7 @@ class DeckListScreen extends Component {
         <ActivityIndicator style={styles.loading}/>
       )
     }
-    console.log('list', list);
+    
     return (
       <Content style={styles.content}>
         <List

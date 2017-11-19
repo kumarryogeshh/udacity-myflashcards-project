@@ -50,7 +50,6 @@ export default StackNavigator({
     path: 'deckDetail/:id',
     screen: DeckDetailScreen,
     navigationOptions: ({navigation}) => ({
-      //headerTintColor: white,
       headerStyle: styles.header,
       title: navigation.state.params.title
     })
@@ -59,7 +58,6 @@ export default StackNavigator({
     path: 'addCard/:id',
     screen: AddCardScreen,
     navigationOptions: {
-      //headerTintColor: white,
       headerStyle: styles.header,
       title: 'Add Card'
     }
@@ -68,7 +66,6 @@ export default StackNavigator({
     path: 'quiz/:id',
     screen: QuizScreen,
     navigationOptions: {
-      //headerTintColor: white,
       headerStyle: styles.header,
       title: 'Quiz'
     }
